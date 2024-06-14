@@ -7,7 +7,7 @@ export default class RoundResultConsumer extends EventConsumers.RoundResultConsu
     generateServerSeed() {
         const { randomMode } = this.gameData.gameConfigs;
 
-        let randomBalls = [];
+        const randomBalls = [];
         for (let i = 0; i < BALLS_EACH_ROUND; i++) {
             randomBalls.push(getRandomIndex(randomMode, TOTAL_BALLS));
         }

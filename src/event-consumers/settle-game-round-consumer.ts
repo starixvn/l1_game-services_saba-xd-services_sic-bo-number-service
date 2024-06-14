@@ -72,7 +72,7 @@ export default class SettleGameRoundConsumer extends EventConsumers.SettleGameRo
 
         Object.keys(odds).forEach((choice) => {
             if (this.isSpecificChoice(choice)) {
-                const specificMapperKey = resultBalls.filter((ball: Number) => ball === SPECIFIC_CHOICE_MAPPER[choice]).length;
+                const specificMapperKey = resultBalls.filter((ball) => ball === SPECIFIC_CHOICE_MAPPER[choice]).length;
                 const specificOddsType = settlementDrawResult[choice] ? SPECIFIC_ODDS_MAPPER[specificMapperKey] : null;
                 odds[choice] = specificOddsType ? betOdds[specificOddsType] : 0;
             } else {
