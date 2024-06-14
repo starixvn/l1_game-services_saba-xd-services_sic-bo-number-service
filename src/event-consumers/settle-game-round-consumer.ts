@@ -50,7 +50,7 @@ export default class SettleGameRoundConsumer extends EventConsumers.SettleGameRo
                 bets.map(async (bet: any) => {
                     const settlementDrawResult = getFilterObjectWithAllowedKeys(finishDraw.settlementResult, this.definition.choices);
 
-                    const odds = this.calculateAndReturnOdds(settlementDrawResult, finishDraw, bet.odds);
+                    const odds = this.calculateAndReturnOdds(settlementDrawResult, finishDraw.result.balls, bet.odds);
 
                     const betResult = this.calculateBetResult(settlementDrawResult, bet, odds);
 
@@ -67,12 +67,12 @@ export default class SettleGameRoundConsumer extends EventConsumers.SettleGameRo
         }
     }
 
-    calculateAndReturnOdds(settlementDrawResult: Record<string, boolean>, finishDraw: FinishDraw, betOdds: Record<string, number>) {
+    calculateAndReturnOdds(settlementDrawResult: Record<string, boolean>, resultBalls: number[], betOdds: Record<string, number>) {
         const odds = { ...settlementDrawResult } as any;
 
         Object.keys(odds).forEach((choice) => {
             if (this.isSpecificChoice(choice)) {
-                const specificMapperKey = finishDraw.result.balls.filter((ball: Number) => ball === SPECIFIC_CHOICE_MAPPER[choice]).length;
+                const specificMapperKey = resultBalls.filter((ball: Number) => ball === SPECIFIC_CHOICE_MAPPER[choice]).length;
                 const specificOddsType = settlementDrawResult[choice] ? SPECIFIC_ODDS_MAPPER[specificMapperKey] : null;
                 odds[choice] = specificOddsType ? betOdds[specificOddsType] : 0;
             } else {

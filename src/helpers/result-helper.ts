@@ -30,7 +30,7 @@ export const finalHashToNumbers = (finalHash: string) => {
 
 export const getSettlementResult = (result: DrawResult) => {
     const sum = Utils.getSum(result.balls);
-    const big = sum > BIG_BEGIN;
+    const big = sum >= BIG_BEGIN;
 
     return {
         big: big,
