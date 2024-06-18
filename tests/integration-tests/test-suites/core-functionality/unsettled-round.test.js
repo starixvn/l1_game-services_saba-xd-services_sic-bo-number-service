@@ -1,8 +1,8 @@
 import { GameClientDriver, normalUser } from "sc-game-service-integration-utils";
-import { initUserSession } from "../helper/helper";
-import { socketOptionsFunc } from "../_stubs/test-data";
-import appConfigs from "../../../build/app-configs.IGT";
-import { bets } from "../../../build/models";
+import { initUserSession } from "../../helper/helper";
+import { socketOptionsFunc } from "../../_stubs/test-data";
+import appConfigs from "../../../../build/app-configs.IGT";
+import { bets } from "../../../../build/models";
 import mongoose from "mongoose";
 
 const socketOptions = socketOptionsFunc(appConfigs.hostingPort);

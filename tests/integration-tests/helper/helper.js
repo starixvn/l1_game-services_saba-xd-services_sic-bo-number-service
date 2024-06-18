@@ -19,22 +19,20 @@ export const checkConnect = (socketOptions, callback) => {
 };
 
 export const getTimeOutToPlacingBetTime = (remainingTime, durations) => {
-    remainingTime = Helpers.getCurrentTimeOfTurn(remainingTime, durations.wholeTurn, gameSettings.numberOfTurnsPerRound);
-
     let timeout = 0;
     if (remainingTime <= durations.lockingBet) {
-        timeout = remainingTime + durations.wholeTurn - durations.placingBets + 2;
+        timeout = remainingTime + durations.wholeTurn - durations.placingBets + gameSettings.startingRound + 1;
     } else if (remainingTime >= durations.placingBets) {
         timeout = remainingTime - durations.placingBets + 1;
     }
-    
+
     return timeout;
 };
 
 export const getTimeOutToSettleTime = (remainingTime, durations) => {
     let timeout = 0;
     if (remainingTime <= durations.placingBets) {
-        timeout = remainingTime + 1.5;
+        timeout = remainingTime + 1 + gameSettings.startingRound;
     }
 
     return timeout;
@@ -58,4 +56,3 @@ export const initUserSession = (user) => {
         browserUserAgent: "browser-user-agent",
     };
 };
-

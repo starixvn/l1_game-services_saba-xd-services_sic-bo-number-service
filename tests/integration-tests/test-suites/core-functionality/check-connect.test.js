@@ -1,6 +1,6 @@
-import { socketOptionsFunc } from "../_stubs/test-data";
-import appConfigs from "../../../build/app-configs.IGT";
-import { checkConnect } from "../helper/helper";
+import { socketOptionsFunc } from "../../_stubs/test-data";
+import appConfigs from "../../../../build/app-configs.IGT";
+import { checkConnect } from "../../helper/helper";
 
 const socketOptions = socketOptionsFunc(appConfigs.hostingPort);
 

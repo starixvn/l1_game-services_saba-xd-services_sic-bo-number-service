@@ -1,8 +1,8 @@
 import { GameClientDriver, normalUser, eventTypes } from "sc-game-service-integration-utils";
-import gameSettings from "../_stubs/game-settings";
-import { getTimeOutToPlacingBetTime, initUserSession } from "../helper/helper";
-import { socketOptionsFunc } from "../_stubs/test-data";
-import appConfigs from "../../../build/app-configs.IGT";
+import gameSettings from "../../_stubs/game-settings";
+import { getTimeOutToPlacingBetTime, initUserSession } from "../../helper/helper";
+import { socketOptionsFunc } from "../../_stubs/test-data";
+import appConfigs from "../../../../build/app-configs.IGT";
 
 const socketOptions = socketOptionsFunc(appConfigs.hostingPort);
 

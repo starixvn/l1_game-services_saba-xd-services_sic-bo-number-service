@@ -1,7 +1,7 @@
 import { GameClientDriver, normalUser } from "sc-game-service-integration-utils";
-import { initUserSession } from "../helper/helper";
-import { socketOptionsFunc } from "../_stubs/test-data";
-import appConfigs from "../../../build/app-configs.IGT";
+import { initUserSession } from "../../helper/helper";
+import { socketOptionsFunc } from "../../_stubs/test-data";
+import appConfigs from "../../../../build/app-configs.IGT";
 
 const socketOptions = socketOptionsFunc(appConfigs.hostingPort);
 

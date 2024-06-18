@@ -1,8 +1,8 @@
 import { GameClientDriver, normalUser, eventTypes } from "sc-game-service-integration-utils";
-import gameSettings from "../_stubs/game-settings";
-import { getTimeOutToPlacingBetTime, initUserSession } from "../helper/helper";
-import { socketOptionsFunc } from "../_stubs/test-data";
-import appConfigs from "../../../build/app-configs.IGT";
+import gameSettings from "../../_stubs/game-settings";
+import { getTimeOutToPlacingBetTime, initUserSession } from "../../helper/helper";
+import { socketOptionsFunc } from "../../_stubs/test-data";
+import appConfigs from "../../../../build/app-configs.IGT";
 
 const socketOptions = socketOptionsFunc(appConfigs.hostingPort);
 
@@ -41,6 +41,7 @@ describe("when settle", () => {
             const { status } = result;
 
             // Assert
+            console.log(result);
             expect(status.bet).toBeGreaterThanOrEqual(20);
         });
     });

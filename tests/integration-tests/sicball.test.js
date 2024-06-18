@@ -1,9 +1,15 @@
 describe("SicBall integration tests", () => {
-    require("./test-suites/check-connect.test");
-    require("./test-suites/sign-in.test");
-    require("./test-suites/unsettled-round.test");
-    require("./test-suites/get-pf-info.test");
-    require("./test-suites/place-bet.test");
-    require("./test-suites/settle.test");
-    require("./test-suites/rate-limit.test");
+        // core-functionality tests
+        require("./test-suites/core-functionality/check-connect.test");
+        require("./test-suites/core-functionality/sign-in.test");
+        require("./test-suites/core-functionality/unsettled-round.test");
+        require("./test-suites/core-functionality/get-pf-info.test");
+        require("./test-suites/core-functionality/place-bet.test");
+        require("./test-suites/core-functionality/settle.test");
+
+        // service validation tests
+        require("./test-suites/service-validation/place-bet-validation.test");
+
+        // rate limit test
+        require("./test-suites/core-functionality/rate-limit.test");
 });
